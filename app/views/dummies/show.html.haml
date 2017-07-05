@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Test:
+  = @dummy.test
+
+= link_to 'Edit', edit_dummy_path(@dummy)
+\|
+= link_to 'Back', dummies_path

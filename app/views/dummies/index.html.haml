@@ -1,0 +1,19 @@
+%h1 Listing dummies
+
+%table
+  %tr
+    %th Test
+    %th
+    %th
+    %th
+
+  - @dummies.each do |dummy|
+    %tr
+      %td= dummy.test
+      %td= link_to 'Show', dummy
+      %td= link_to 'Edit', edit_dummy_path(dummy)
+      %td= link_to 'Destroy', dummy, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Dummy', new_dummy_path
