@@ -1,0 +1,408 @@
+have_struct_member: checking for rb_method_entry_t.called_id in method.h... -------------------- yes
+
+"gcc-4.9 -o conftest -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/x86_64-darwin16.3.0 -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/ruby/backward -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1 -I. -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/ruby-1.9.3-p551 -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/opt/libksba/include -I/usr/local/opt/openssl/include  -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fno-common -pipe conftest.c  -L. -L/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl/lib -L. -L/usr/local/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl/lib      -lruby.1.9.1  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return 0;
+6: }
+/* end */
+
+"gcc-4.9 -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/x86_64-darwin16.3.0 -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/ruby/backward -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1 -I. -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/ruby-1.9.3-p551 -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/opt/libksba/include -I/usr/local/opt/openssl/include  -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fno-common -pipe   -c conftest.c"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <method.h>
+ 4: 
+ 5: /*top*/
+ 6: int s = (char *)&((rb_method_entry_t*)0)->called_id - (char *)0;
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     printf("%p", &s);
+11:   }
+12: 
+13:   return 0;
+14: }
+/* end */
+
+--------------------
+
+have_func: checking for rb_method_entry() in method.h... -------------------- no
+
+"gcc-4.9 -o conftest -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/x86_64-darwin16.3.0 -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/ruby/backward -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1 -I. -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/ruby-1.9.3-p551 -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/opt/libksba/include -I/usr/local/opt/openssl/include  -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fno-common -pipe conftest.c  -L. -L/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl/lib -L. -L/usr/local/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl/lib      -lruby.1.9.1  -lpthread -ldl -lobjc "
+conftest.c: In function 't':
+conftest.c:6:28: warning: variable 'p' set but not used [-Wunused-but-set-variable]
+ int t() { void ((*volatile p)()); p = (void ((*)()))rb_method_entry; return 0; }
+                            ^
+Undefined symbols for architecture x86_64:
+  "_rb_method_entry", referenced from:
+      _t in cc2ef55j.o
+ld: symbol(s) not found for architecture x86_64
+collect2: error: ld returned 1 exit status
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <method.h>
+ 4: 
+ 5: /*top*/
+ 6: int t() { void ((*volatile p)()); p = (void ((*)()))rb_method_entry; return 0; }
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     printf("%p", &t);
+11:   }
+12: 
+13:   return 0;
+14: }
+/* end */
+
+"gcc-4.9 -o conftest -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/x86_64-darwin16.3.0 -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/ruby/backward -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1 -I. -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/ruby-1.9.3-p551 -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/opt/libksba/include -I/usr/local/opt/openssl/include  -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fno-common -pipe conftest.c  -L. -L/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl/lib -L. -L/usr/local/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl/lib      -lruby.1.9.1  -lpthread -ldl -lobjc "
+conftest.c: In function 't':
+conftest.c:6:11: error: too few arguments to function 'rb_method_entry'
+ int t() { rb_method_entry(); return 0; }
+           ^
+In file included from conftest.c:3:0:
+/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/ruby-1.9.3-p551/method.h:92:20: note: declared here
+ rb_method_entry_t *rb_method_entry(VALUE klass, ID id);
+                    ^
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <method.h>
+ 4: 
+ 5: /*top*/
+ 6: int t() { rb_method_entry(); return 0; }
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     printf("%p", &t);
+11:   }
+12: 
+13:   return 0;
+14: }
+/* end */
+
+--------------------
+
+have_func: checking for rb_method_node() in node.h... -------------------- no
+
+"gcc-4.9 -o conftest -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/x86_64-darwin16.3.0 -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/ruby/backward -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1 -I. -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/ruby-1.9.3-p551 -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/opt/libksba/include -I/usr/local/opt/openssl/include  -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fno-common -pipe conftest.c  -L. -L/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl/lib -L. -L/usr/local/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl/lib      -lruby.1.9.1  -lpthread -ldl -lobjc "
+conftest.c: In function 't':
+conftest.c:6:53: error: 'rb_method_node' undeclared (first use in this function)
+ int t() { void ((*volatile p)()); p = (void ((*)()))rb_method_node; return 0; }
+                                                     ^
+conftest.c:6:53: note: each undeclared identifier is reported only once for each function it appears in
+conftest.c:6:28: warning: variable 'p' set but not used [-Wunused-but-set-variable]
+ int t() { void ((*volatile p)()); p = (void ((*)()))rb_method_node; return 0; }
+                            ^
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <node.h>
+ 4: 
+ 5: /*top*/
+ 6: int t() { void ((*volatile p)()); p = (void ((*)()))rb_method_node; return 0; }
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     printf("%p", &t);
+11:   }
+12: 
+13:   return 0;
+14: }
+/* end */
+
+"gcc-4.9 -o conftest -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/x86_64-darwin16.3.0 -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/ruby/backward -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1 -I. -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/ruby-1.9.3-p551 -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/opt/libksba/include -I/usr/local/opt/openssl/include  -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fno-common -pipe conftest.c  -L. -L/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl/lib -L. -L/usr/local/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl/lib      -lruby.1.9.1  -lpthread -ldl -lobjc "
+conftest.c: In function 't':
+conftest.c:6:1: warning: implicit declaration of function 'rb_method_node' [-Wimplicit-function-declaration]
+ int t() { rb_method_node(); return 0; }
+ ^
+Undefined symbols for architecture x86_64:
+  "_rb_method_node", referenced from:
+      _t in cc8yVRNk.o
+ld: symbol(s) not found for architecture x86_64
+collect2: error: ld returned 1 exit status
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <node.h>
+ 4: 
+ 5: /*top*/
+ 6: int t() { rb_method_node(); return 0; }
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     printf("%p", &t);
+11:   }
+12: 
+13:   return 0;
+14: }
+/* end */
+
+--------------------
+
+have_func: checking for rb_iseq_new_main() in vm_core.h... -------------------- yes
+
+"gcc-4.9 -o conftest -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/x86_64-darwin16.3.0 -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/ruby/backward -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1 -I. -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/ruby-1.9.3-p551 -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/opt/libksba/include -I/usr/local/opt/openssl/include  -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fno-common -pipe conftest.c  -L. -L/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl/lib -L. -L/usr/local/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl/lib      -lruby.1.9.1  -lpthread -ldl -lobjc "
+conftest.c: In function 't':
+conftest.c:6:28: warning: variable 'p' set but not used [-Wunused-but-set-variable]
+ int t() { void ((*volatile p)()); p = (void ((*)()))rb_iseq_new_main; return 0; }
+                            ^
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <vm_core.h>
+ 4: 
+ 5: /*top*/
+ 6: int t() { void ((*volatile p)()); p = (void ((*)()))rb_iseq_new_main; return 0; }
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     printf("%p", &t);
+11:   }
+12: 
+13:   return 0;
+14: }
+/* end */
+
+--------------------
+
+have_func: checking for rb_iseq_compile_on_base() in vm_core.h... -------------------- no
+
+"gcc-4.9 -o conftest -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/x86_64-darwin16.3.0 -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/ruby/backward -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1 -I. -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/ruby-1.9.3-p551 -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/opt/libksba/include -I/usr/local/opt/openssl/include  -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fno-common -pipe conftest.c  -L. -L/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl/lib -L. -L/usr/local/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl/lib      -lruby.1.9.1  -lpthread -ldl -lobjc "
+conftest.c: In function 't':
+conftest.c:6:53: error: 'rb_iseq_compile_on_base' undeclared (first use in this function)
+ int t() { void ((*volatile p)()); p = (void ((*)()))rb_iseq_compile_on_base; return 0; }
+                                                     ^
+conftest.c:6:53: note: each undeclared identifier is reported only once for each function it appears in
+conftest.c:6:28: warning: variable 'p' set but not used [-Wunused-but-set-variable]
+ int t() { void ((*volatile p)()); p = (void ((*)()))rb_iseq_compile_on_base; return 0; }
+                            ^
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <vm_core.h>
+ 4: 
+ 5: /*top*/
+ 6: int t() { void ((*volatile p)()); p = (void ((*)()))rb_iseq_compile_on_base; return 0; }
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     printf("%p", &t);
+11:   }
+12: 
+13:   return 0;
+14: }
+/* end */
+
+"gcc-4.9 -o conftest -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/x86_64-darwin16.3.0 -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/ruby/backward -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1 -I. -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/ruby-1.9.3-p551 -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/opt/libksba/include -I/usr/local/opt/openssl/include  -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fno-common -pipe conftest.c  -L. -L/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl/lib -L. -L/usr/local/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl/lib      -lruby.1.9.1  -lpthread -ldl -lobjc "
+conftest.c: In function 't':
+conftest.c:6:1: warning: implicit declaration of function 'rb_iseq_compile_on_base' [-Wimplicit-function-declaration]
+ int t() { rb_iseq_compile_on_base(); return 0; }
+ ^
+Undefined symbols for architecture x86_64:
+  "_rb_iseq_compile_on_base", referenced from:
+      _t in ccRi5klO.o
+ld: symbol(s) not found for architecture x86_64
+collect2: error: ld returned 1 exit status
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <vm_core.h>
+ 4: 
+ 5: /*top*/
+ 6: int t() { rb_iseq_compile_on_base(); return 0; }
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     printf("%p", &t);
+11:   }
+12: 
+13:   return 0;
+14: }
+/* end */
+
+--------------------
+
+have_struct_member: checking for rb_iseq_t.location in vm_core.h... -------------------- no
+
+"gcc-4.9 -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/x86_64-darwin16.3.0 -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/ruby/backward -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1 -I. -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/ruby-1.9.3-p551 -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/opt/libksba/include -I/usr/local/opt/openssl/include  -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fno-common -pipe   -c conftest.c"
+conftest.c:6:33: error: 'rb_iseq_t' has no member named 'location'
+ int s = (char *)&((rb_iseq_t*)0)->location - (char *)0;
+                                 ^
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <vm_core.h>
+ 4: 
+ 5: /*top*/
+ 6: int s = (char *)&((rb_iseq_t*)0)->location - (char *)0;
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     printf("%p", &s);
+11:   }
+12: 
+13:   return 0;
+14: }
+/* end */
+
+--------------------
+
+have_struct_member: checking for rb_iseq_t.filename in vm_core.h... -------------------- yes
+
+"gcc-4.9 -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/x86_64-darwin16.3.0 -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/ruby/backward -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1 -I. -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/ruby-1.9.3-p551 -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/opt/libksba/include -I/usr/local/opt/openssl/include  -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fno-common -pipe   -c conftest.c"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <vm_core.h>
+ 4: 
+ 5: /*top*/
+ 6: int s = (char *)&((rb_iseq_t*)0)->filename - (char *)0;
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     printf("%p", &s);
+11:   }
+12: 
+13:   return 0;
+14: }
+/* end */
+
+--------------------
+
+have_struct_member: checking for rb_iseq_t.line_info_size in vm_core.h... -------------------- no
+
+"gcc-4.9 -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/x86_64-darwin16.3.0 -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/ruby/backward -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1 -I. -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/ruby-1.9.3-p551 -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/opt/libksba/include -I/usr/local/opt/openssl/include  -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fno-common -pipe   -c conftest.c"
+conftest.c:6:33: error: 'rb_iseq_t' has no member named 'line_info_size'
+ int s = (char *)&((rb_iseq_t*)0)->line_info_size - (char *)0;
+                                 ^
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <vm_core.h>
+ 4: 
+ 5: /*top*/
+ 6: int s = (char *)&((rb_iseq_t*)0)->line_info_size - (char *)0;
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     printf("%p", &s);
+11:   }
+12: 
+13:   return 0;
+14: }
+/* end */
+
+--------------------
+
+have_struct_member: checking for rb_iseq_t.insn_info_size in vm_core.h... -------------------- yes
+
+"gcc-4.9 -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/x86_64-darwin16.3.0 -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/ruby/backward -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1 -I. -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/ruby-1.9.3-p551 -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/opt/libksba/include -I/usr/local/opt/openssl/include  -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fno-common -pipe   -c conftest.c"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <vm_core.h>
+ 4: 
+ 5: /*top*/
+ 6: int s = (char *)&((rb_iseq_t*)0)->insn_info_size - (char *)0;
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     printf("%p", &s);
+11:   }
+12: 
+13:   return 0;
+14: }
+/* end */
+
+--------------------
+
+have_struct_member: checking for rb_control_frame_t.ep in vm_core.h... -------------------- no
+
+"gcc-4.9 -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/x86_64-darwin16.3.0 -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/ruby/backward -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1 -I. -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/ruby-1.9.3-p551 -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/opt/libksba/include -I/usr/local/opt/openssl/include  -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fno-common -pipe   -c conftest.c"
+conftest.c:6:42: error: 'rb_control_frame_t' has no member named 'ep'
+ int s = (char *)&((rb_control_frame_t*)0)->ep - (char *)0;
+                                          ^
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <vm_core.h>
+ 4: 
+ 5: /*top*/
+ 6: int s = (char *)&((rb_control_frame_t*)0)->ep - (char *)0;
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     printf("%p", &s);
+11:   }
+12: 
+13:   return 0;
+14: }
+/* end */
+
+--------------------
+
+have_struct_member: checking for rb_control_frame_t.dfp in vm_core.h... -------------------- yes
+
+"gcc-4.9 -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/x86_64-darwin16.3.0 -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/ruby/backward -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1 -I. -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/ruby-1.9.3-p551 -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/opt/libksba/include -I/usr/local/opt/openssl/include  -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fno-common -pipe   -c conftest.c"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <vm_core.h>
+ 4: 
+ 5: /*top*/
+ 6: int s = (char *)&((rb_control_frame_t*)0)->dfp - (char *)0;
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     printf("%p", &s);
+11:   }
+12: 
+13:   return 0;
+14: }
+/* end */
+
+--------------------
+
+have_struct_member: checking for rb_control_frame_t.bp in vm_core.h... -------------------- yes
+
+"gcc-4.9 -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/x86_64-darwin16.3.0 -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/ruby/backward -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1 -I. -I/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/ruby-1.9.3-p551 -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/opt/libksba/include -I/usr/local/opt/openssl/include  -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fno-common -pipe   -c conftest.c"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <vm_core.h>
+ 4: 
+ 5: /*top*/
+ 6: int s = (char *)&((rb_control_frame_t*)0)->bp - (char *)0;
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     printf("%p", &s);
+11:   }
+12: 
+13:   return 0;
+14: }
+/* end */
+
+--------------------
+

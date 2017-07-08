@@ -1,0 +1,44 @@
+current directory: /Users/aabes/random/demo/rails-32/vendor/ruby/1.9.1/gems/ruby-debug-base19x-0.11.31/ext/ruby_debug
+/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/bin/ruby -r ./siteconf20170708-98570-1aq0r65.rb extconf.rb
+checking for rb_method_entry_t.called_id in method.h... yes
+checking for rb_method_entry() in method.h... no
+checking for rb_method_node() in node.h... no
+checking for rb_iseq_new_main() in vm_core.h... yes
+checking for rb_iseq_compile_on_base() in vm_core.h... no
+checking for rb_iseq_t.location in vm_core.h... no
+checking for rb_iseq_t.filename in vm_core.h... yes
+checking for rb_iseq_t.line_info_size in vm_core.h... no
+checking for rb_iseq_t.insn_info_size in vm_core.h... yes
+checking for rb_control_frame_t.ep in vm_core.h... no
+checking for rb_control_frame_t.dfp in vm_core.h... yes
+checking for rb_control_frame_t.bp in vm_core.h... yes
+creating Makefile
+
+current directory: /Users/aabes/random/demo/rails-32/vendor/ruby/1.9.1/gems/ruby-debug-base19x-0.11.31/ext/ruby_debug
+make  clean
+
+current directory: /Users/aabes/random/demo/rails-32/vendor/ruby/1.9.1/gems/ruby-debug-base19x-0.11.31/ext/ruby_debug
+make
+compiling breakpoint.c
+compiling ruby_debug.c
+ruby_debug.c: In function 'save_call_frame':
+ruby_debug.c:494:31: warning: operation on 'debug_context->frames' may be undefined [-Wsequence-point]
+         debug_context->frames = REALLOC_N(debug_context->frames, debug_frame_t, debug_context->stack_len);
+                               ^
+In file included from ruby_debug.c:9:0:
+ruby_debug.c: At top level:
+/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/ruby-1.9.3-p551/insns_info.inc:666:1: warning: 'insn_name' defined but not used [-Wunused-function]
+ insn_name(VALUE insn)
+ ^
+/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/ruby-1.9.3-p551/insns_info.inc:672:1: warning: 'insn_op_types' defined but not used [-Wunused-function]
+ insn_op_types(VALUE insn)
+ ^
+/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/ruby-1.9.3-p551/insns_info.inc:678:1: warning: 'insn_op_type' defined but not used [-Wunused-function]
+ insn_op_type(VALUE insn, long pos)
+ ^
+linking shared-object ruby_debug.bundle
+
+current directory: /Users/aabes/random/demo/rails-32/vendor/ruby/1.9.1/gems/ruby-debug-base19x-0.11.31/ext/ruby_debug
+make  install
+/usr/local/opt/coreutils/bin/ginstall -c -m 0755 ruby_debug.bundle .gem.20170708-98570-1e377ig
+installing default ruby_debug libraries

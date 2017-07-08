@@ -1,5 +1,7 @@
-PATH
-  remote: patch/0.6.1.beta5
+GIT
+  remote: git://github.com/ruby-debug/ruby-debug-ide.git
+  revision: 43b57a0cb26e4aac602a57221089c12480d169cc
+  branch: master
   specs:
     ruby-debug-ide (0.6.1.beta5)
       rake (>= 0.8.1)
@@ -105,6 +107,14 @@ GEM
     rspec-mocks (3.6.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.6.0)
+    rspec-rails (3.6.0)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec-core (~> 3.6.0)
+      rspec-expectations (~> 3.6.0)
+      rspec-mocks (~> 3.6.0)
+      rspec-support (~> 3.6.0)
     rspec-support (3.6.0)
     ruby-debug-base19x (0.11.31)
       debugger-ruby_core_source (> 0)
@@ -140,7 +150,9 @@ DEPENDENCIES
   haml-rails (>= 0.3.4)
   jquery-rails
   rails (= 3.2.22.5)
+  rake
   rspec
+  rspec-rails
   ruby-debug-base19x
   ruby-debug-ide!
   sass-rails (~> 3.2.3)
@@ -149,4 +161,4 @@ DEPENDENCIES
   zeus
 
 BUNDLED WITH
-   1.15.0
+   1.15.1

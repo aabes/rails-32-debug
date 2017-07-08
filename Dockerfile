@@ -12,8 +12,9 @@ WORKDIR /app
 ADD Gemfile /app
 ADD Gemfile.lock /app
 ADD patch/ /app/patch
+ADD vendor/ /app/vendor
 
-RUN gem install bundler && bundle install -j8
+RUN gem install bundler && bundle install --local -j8
 ADD . /app
 
 EXPOSE 3000

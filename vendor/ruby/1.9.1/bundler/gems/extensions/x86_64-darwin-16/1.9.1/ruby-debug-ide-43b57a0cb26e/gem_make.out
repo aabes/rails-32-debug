@@ -1,0 +1,7 @@
+current directory: /Users/aabes/random/demo/rails-32/vendor/ruby/1.9.1/bundler/gems/ruby-debug-ide-43b57a0cb26e/ext
+/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/bin/ruby mkrf_conf.rb
+Installing base gem
+Building native extensions.  This could take a while...
+
+current directory: /Users/aabes/random/demo/rails-32/vendor/ruby/1.9.1/bundler/gems/ruby-debug-ide-43b57a0cb26e/ext
+/Users/aabes/.rvm/rubies/ruby-1.9.3-p551/bin/ruby -rubygems /Users/aabes/random/demo/rails-32/vendor/ruby/1.9.1/gems/rake-12.0.0/exe/rake RUBYARCHDIR=/Users/aabes/random/demo/rails-32/vendor/ruby/1.9.1/bundler/gems/extensions/x86_64-darwin-16/1.9.1/ruby-debug-ide-43b57a0cb26e RUBYLIBDIR=/Users/aabes/random/demo/rails-32/vendor/ruby/1.9.1/bundler/gems/extensions/x86_64-darwin-16/1.9.1/ruby-debug-ide-43b57a0cb26e
